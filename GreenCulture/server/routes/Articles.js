@@ -33,4 +33,25 @@ router.route("/").get(async (req,res)=>{
     })
 });
 
+//Articles updating
+router.route("/update/:id").put(async(req,res)=>{
+    let articleId = req.params.id;
+
+    const {articleTitle,articleCategory,articleDescription} = req.body;
+
+    const updateArticle = {
+        articleTitle,
+        articleCategory,
+        articleDescription
+    }
+
+    const update = await Article.findByIdAndUpdate(articleId,updateArticle)
+        .then(()=>{
+            res.status(200).send({status: "Article updated"});
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500).send({status: "Error with updating Article "});
+        })
+});
+
 module.exports = router;
