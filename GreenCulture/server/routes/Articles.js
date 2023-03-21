@@ -67,4 +67,16 @@ router.route("/delete/:id").delete(async(req,res)=>{
         })
 });
 
+//one Specific Article getting
+router.route("/get/:id").get(async(req,res)=>{
+    let articleId = req.params.id;
+    const article = await Article.findById(articleId)
+        .then((Articles)=>{
+            res.status(200).send({status: "Article Fetched",Articles});
+        }).catch((err)=>{
+            console.log(err.message);
+            res.status(500).send({status: "Error with get Article",error: err.message});
+        })
+});
+
 module.exports = router;
