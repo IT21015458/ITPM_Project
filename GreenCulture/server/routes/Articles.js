@@ -1,7 +1,7 @@
 const router = require("express").Router();
 let Article = require("../models/Articles");
 
-//Articles add
+//Articles adding
 router.route("/add").post(async (req,res)=>{
     const articleID =req.body.articleID;
     const articleTitle = req.body.articleTitle;
@@ -24,5 +24,13 @@ router.route("/add").post(async (req,res)=>{
 
 });
 
+//Articles getting
+router.route("/").get(async (req,res)=>{
+    await Article.find().then((articles)=>{
+        res.json(articles);
+    }).catch((err)=>{
+        console.log(err);
+    })
+});
 
 module.exports = router;
