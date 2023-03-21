@@ -6,16 +6,12 @@ const dotenv = require("dotenv");
 const app = express();
 require("dotenv").config();
 
-// test ommetasdankasd asdsa 
-const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8060;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 const URL = process.env.MONGODB_URL;
-
-// "mongodb+srv://newuser:password1234@cluster0.pf3q19g.mongodb.net/CTC?retryWrites=true&w=majority"
-
 
 mongoose.connect(URL, {
 	useNewUrlParser: true,
@@ -26,6 +22,9 @@ const connection = mongoose.connection;
 connection.once("open", () => {
 	console.log("MongoDB Connection Success!");
 });
+
+const articleRouter = require("./routes/Articles");
+app.use("/article",articleRouter);
 
 app.listen(PORT, () => {
 	console.log(`Server is up and running on Port: ${PORT}`)
