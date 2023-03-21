@@ -54,4 +54,17 @@ router.route("/update/:id").put(async(req,res)=>{
         })
 });
 
+//Articles delete
+router.route("/delete/:id").delete(async(req,res)=>{
+    let articleId = req.params.id;
+
+    await Article.findByIdAndDelete(articleId)
+        .then(()=>{
+            res.status(200).send({status: "Article Deleted"});
+        }).catch((err) =>{
+            console.log(err.message);
+            res.status(500).send({status: "Error with Delete Article",error: err.message});
+        })
+});
+
 module.exports = router;
