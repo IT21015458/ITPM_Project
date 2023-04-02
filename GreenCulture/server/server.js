@@ -23,8 +23,8 @@ connection.once("open", () => {
 	console.log("MongoDB Connection Success!");
 });
 
-const articleRouter = require("./routes/Articles");
-app.use("/article",articleRouter);
+const questionforumRoute = require("./routes/Question");
+app.use("/questionforum",questionforumRoute);
 
 app.listen(PORT, () => {
 	console.log(`Server is up and running on Port: ${PORT}`)
