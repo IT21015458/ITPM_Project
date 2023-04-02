@@ -14,18 +14,18 @@ app.use(bodyParser.json());
 const URL = process.env.MONGODB_URL;
 
 mongoose.connect(URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 const connection = mongoose.connection;
 connection.once("open", () => {
-	console.log("MongoDB Connection Success!");
+    console.log("MongoDB Connection Success!");
 });
 
-const articleRouter = require("./routes/Articles");
-app.use("/article",articleRouter);
+const productMarketplaceRouter = require("./routes/productMarketplace");
+app.use("/productMarketplace", productMarketplaceRouter);
 
 app.listen(PORT, () => {
-	console.log(`Server is up and running on Port: ${PORT}`)
+    console.log(`Server is up and running on Port: ${PORT}`)
 });
