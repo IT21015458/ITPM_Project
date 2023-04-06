@@ -45,13 +45,20 @@ router.route("/update/:id").put(async(req,res)=>{
         articleDescription
     }
 
-    const update = await Article.findByIdAndUpdate(articleId,updateArticle)
-        .then(()=>{
-            res.status(200).send({status: "Article updated"});
-        }).catch((err)=>{
+    return await Article.findById(articleId)
+        .then((val) => {
+
+            if (val) {
+                return val.set(updateArticle).save().then((val) => {
+                    return res.status(201).json({ val });
+                })
+            } else {
+                return res.status(404).json({ "message": "Article not found" })
+            }
+        }).catch((err) => {
             console.log(err);
-            res.status(500).send({status: "Error with updating Article "});
-        })
+            return res.status(500).send({ status: "Error with Update Article" });
+        });
 });
 
 //Articles delete
