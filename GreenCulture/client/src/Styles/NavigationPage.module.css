@@ -1,13 +1,14 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #003311;
 }
 #backgroundBlur{
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
+    background-color: #003311;
+    
 }
 #backgroundFilter{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
     background: black;
 }
 #opacityFilter{
@@ -30,10 +31,12 @@ body{
 #headerText{
     line-height: 8rem;
     font-size: 5rem;
+    font-weight: bold;
 }
 #subHeaderText{
     line-height: 2.3rem;
     font-size: 1.5rem;
+    font-weight: 100;
 }
 #buttonContainer{
     display: flex;
@@ -44,4 +47,5 @@ body{
     margin-right: 5%;
     padding: 1rem 2rem;
     font-size: 1.2rem;
+    font-weight: 600;
 }
