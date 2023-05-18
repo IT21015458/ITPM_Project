@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#backgroundBlur{
+    background-color: #003311;
+    
+}
+#backgroundFilter{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    background: black;
+}
+#opacityFilter{
+    opacity: 0.18;
+}
+.headerContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    text-align: center;
+}
+#headerText{
+    line-height: 8rem;
+    font-size: 5rem;
+    font-weight: bold;
+}
+#subHeaderText{
+    line-height: 2.3rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+#buttonContainer{
+    display: flex;
+    flex-direction: row;
+}
+#button1{
+    margin-top: 8%;
+    margin-right: 5%;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
