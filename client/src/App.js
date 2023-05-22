@@ -10,7 +10,6 @@ import ArticleList from "./Pages/ArticleList";
 import UpdateArticle from "./Pages/UpdateArticle";
 import ViewArticle from "./Pages/ViewArticle";
 
-
 function App() {
   return (
     <div>

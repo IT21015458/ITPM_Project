@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const articleSchema = new schema({
-    articleID : {
+    DeliveryArgentName : {
         type : String,
         required : true
     },
